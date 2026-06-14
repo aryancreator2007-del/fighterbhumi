@@ -5,206 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Bhumi ji 💝</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background: linear-gradient(180deg, #2b0412 0%, #4a0e26 50%, #1a020a 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden;
         }
-        .scene-container {
-            position: relative;
-            width: 100%;
-            max-width: 450px;
-            height: 650px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .box-wrapper {
-            position: absolute;
-            cursor: pointer;
-            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            z-index: 10;
-            text-align: center;
-        }
-        .gift-box {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            background: #d63031;
-            border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        }
-        .gift-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 80px;
-            width: 20px; height: 100%;
-            background: #ffeaa7;
-        }
-        .gift-box::after {
-            content: '';
-            position: absolute;
-            top: 80px; left: 0;
-            width: 100%; height: 20px;
-            background: #ffeaa7;
-        }
-        .box-lid {
-            position: absolute;
-            top: -15px; left: -10px;
-            width: 200px; height: 25px;
-            background: #d63031;
-            border-bottom: 4px solid rgba(0,0,0,0.2);
-            border-radius: 5px;
-            z-index: 11;
-        }
+        .scene-container { position: relative; width: 100%; max-width: 450px; height: 650px; display: flex; justify-content: center; align-items: center; }
+        .box-wrapper { position: absolute; cursor: pointer; transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 10; text-align: center; }
+        .gift-box { position: relative; width: 180px; height: 180px; background: #d63031; border-radius: 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .gift-box::before { content: ''; position: absolute; top: 0; left: 80px; width: 20px; height: 100%; background: #ffeaa7; }
+        .gift-box::after { content: ''; position: absolute; top: 80px; left: 0; width: 100%; height: 20px; background: #ffeaa7; }
+        .box-lid { position: absolute; top: -15px; left: -10px; width: 200px; height: 25px; background: #d63031; border-bottom: 4px solid rgba(0,0,0,0.2); border-radius: 5px; z-index: 11; }
         .card-wrapper {
-            position: absolute;
-            width: 95%;
-            height: 98%;
-            background: linear-gradient(180deg, #fff0f5 0%, #ffe4e1 100%);
-            border-radius: 24px;
-            border: 8px solid #ff4d6d;
-            padding: 25px 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            opacity: 0;
-            transform: scale(0.2) translateY(300px);
-            transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            z-index: 5;
+            position: absolute; width: 95%; height: 98%; background: linear-gradient(180deg, #fff0f5 0%, #ffe4e1 100%); border-radius: 24px; border: 8px solid #ff4d6d;
+            padding: 25px 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+            opacity: 0; transform: scale(0.2) translateY(300px); transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none; z-index: 5;
         }
-        .ribbon-header {
-            background: linear-gradient(90deg, #ff2a5f, #ff4d6d, #ff2a5f);
-            color: white;
-            padding: 8px 35px;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 30px;
-            box-shadow: 0 6px 12px rgba(255, 77, 109, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-        }
-        .center-name {
-            font-size: 40px;
-            color: #ff2a5f;
-            font-weight: 800;
-            font-style: italic;
-            margin: 5px 0;
-            text-shadow: 1px 1px 0px #fff, 3px 3px 0px #ffccd5;
-            text-align: center;
-        }
-        .hearts-container {
-            position: relative;
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .bear-animation-area {
-            width: 90%;
-            height: 220px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            border-radius: 20px;
-            border: 3px dashed #ff85a1;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            z-index: 2;
-        }
-        
-        /* Pure Browser CSS Beating Heart SVG Container */
-        .vector-heart-glow {
-            width: 110px;
-            height: 110px;
-            fill: #ff4d6d;
-            filter: drop-shadow(0px 0px 12px rgba(255, 77, 109, 0.6));
-            animation: vectorHeartbeatCycle 1.2s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
-        }
-
-        .ambient-heart {
-            position: absolute;
-            font-size: 24px;
-            animation: pulse 1.5s infinite ease-in-out;
-            z-index: 1;
-        }
+        .ribbon-header { background: linear-gradient(90deg, #ff2a5f, #ff4d6d, #ff2a5f); color: white; padding: 8px 35px; font-size: 20px; font-weight: bold; border-radius: 30px; box-shadow: 0 6px 12px rgba(255, 77, 109, 0.4); text-transform: uppercase; letter-spacing: 2px; position: relative; }
+        .center-name { font-size: 40px; color: #ff2a5f; font-weight: 800; font-style: italic; margin: 5px 0; text-shadow: 1px 1px 0px #fff, 3px 3px 0px #ffccd5; text-align: center; }
+        .hearts-container { position: relative; width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center; }
+        .bear-animation-area { width: 90%; height: 220px; display: flex; justify-content: center; align-items: center; background: white; border-radius: 20px; border: 3px dashed #ff85a1; box-shadow: inset 0 0 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; z-index: 2; }
+        .teddy-couple { display: flex; align-items: flex-end; justify-content: center; gap: 20px; width: 100%; height: 140px; position: relative; }
+        .bear { position: relative; width: 70px; height: 90px; }
+        .bear-head { position: absolute; top: 0; left: 5px; width: 60px; height: 55px; border-radius: 50%; z-index: 2; }
+        .boy-bear .bear-head { background: #b08968; }
+        .girl-bear .bear-head { background: #e6ccb2; }
+        .bear-head::before, .bear-head::after { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; top: -4px; }
+        .boy-bear .bear-head::before, .boy-bear .bear-head::after { background: #b08968; }
+        .girl-bear .bear-head::before, .girl-bear .bear-head::after { background: #e6ccb2; }
+        .bear-head::before { left: -2px; }
+        .bear-head::after { right: -2px; }
+        .bear-eyes { position: absolute; top: 22px; width: 6px; height: 6px; background: #212529; border-radius: 50%; }
+        .bear-eyes.left { left: 16px; }
+        .bear-eyes.right { right: 16px; }
+        .bear-muzzle { position: absolute; bottom: 6px; left: 18px; width: 24px; height: 18px; background: #fff; border-radius: 50%; }
+        .bear-muzzle::before { content: ''; position: absolute; top: 3px; left: 8px; width: 8px; height: 5px; background: #212529; border-radius: 4px; }
+        .bear-body { position: absolute; bottom: 0; left: 10px; width: 50px; height: 45px; border-radius: 50% 50% 40% 40%; z-index: 1; }
+        .boy-bear .bear-body { background: #7f5539; }
+        .girl-bear .bear-body { background: #ffb3c1; }
+        .boy-bear { animation: boyLeanIn 2s infinite ease-in-out; transform-origin: bottom center; }
+        .girl-bear { animation: girlBlush 2s infinite ease-in-out; }
+        .kiss-heart { position: absolute; width: 14px; height: 14px; background: #ff4d6d; transform: rotate(45deg); opacity: 0; animation: shootKiss 2s infinite linear; left: 48%; top: 35px; z-index: 5; }
+        .kiss-heart::before, .kiss-heart::after { content: ''; position: absolute; width: 14px; height: 14px; background: #ff4d6d; border-radius: 50%; }
+        .kiss-heart::before { left: -7px; }
+        .kiss-heart::after { top: -7px; }
+        .ambient-heart { position: absolute; font-size: 24px; animation: pulse 1.5s infinite ease-in-out; z-index: 1; }
         .h1 { top: 15px; left: 15px; animation-delay: 0s; }
         .h2 { top: 30px; right: 20px; animation-delay: 0.3s; }
         .h3 { bottom: 20px; left: 25px; animation-delay: 0.6s; }
         .h4 { bottom: 15px; right: 15px; animation-delay: 0.9s; }
-        
-        .text-footer-group {
-            width: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .sorry-text {
-            font-size: 26px;
-            font-weight: bold;
-            color: #c9184a;
-            letter-spacing: 1px;
-        }
-        .custom-puchku-message {
-            font-size: 20px;
-            color: #594a4e;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-        .particle-heart {
-            position: absolute;
-            color: #ff4d6d;
-            font-size: 20px;
-            pointer-events: none;
-            animation: floatUp 2s forwards ease-out;
-            z-index: 99;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        @keyframes vectorHeartbeatCycle {
-            0% { transform: scale(0.95); }
-            5% { transform: scale(1.12); }
-            39% { transform: scale(0.85); }
-            45% { transform: scale(1.08); }
-            60% { transform: scale(0.95); }
-            100% { transform: scale(0.95); }
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
-        }
-        .scene-container.opened .box-wrapper {
-            transform: scale(0) rotate(-15deg);
-            opacity: 0;
-            pointer-events: none;
-        }
-        .scene-container.opened .card-wrapper {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            pointer-events: auto;
-        }
+        .text-footer-group { width: 100%; text-align: center; display: flex; flex-direction: column; gap: 4px; }
+        .sorry-text { font-size: 26px; font-weight: bold; color: #c9184a; letter-spacing: 1px; }
+        .custom-puchku-message { font-size: 20px; color: #594a4e; font-weight: 700; line-height: 1.4; }
+        .particle-heart { position: absolute; color: #ff4d6d; font-size: 20px; pointer-events: none; animation: floatUp 2s forwards ease-out; z-index: 99; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        @keyframes boyLeanIn { 0%, 100% { transform: rotate(0deg) translateX(0); } 50% { transform: rotate(12deg) translateX(12px); } }
+        @keyframes girlBlush { 0%, 100% { filter: saturate(1); } 50% { filter: saturate(1.8); } }
+        @keyframes shootKiss { 0% { opacity: 0; transform: scale(0.5) rotate(45deg) translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.2) rotate(45deg) translateY(-40px) translateX(-10px); } }
+        @keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-150px) scale(1.5); opacity: 0; } }
+        .scene-container.opened .box-wrapper { transform: scale(0) rotate(-15deg); opacity: 0; pointer-events: none; }
+        .scene-container.opened .card-wrapper { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; }
     </style>
 </head>
-<body>
+
+
+
+
+    <body>
     <div class="scene-container" id="sceneContainer">
         <div class="box-wrapper" id="giftBox" onclick="openBox(event)">
             <div class="box-lid"></div>
@@ -220,10 +88,25 @@
                 <span class="ambient-heart h3">✨</span>
                 <span class="ambient-heart h4">💕</span>
                 <div class="bear-animation-area">
-                    <!-- Inline Vector Native Heart Shape Drawing -->
-                    <svg class="vector-heart-glow" viewBox="0 0 32 32">
-                        <path d="M16 28.5c-.5 0-1-.2-1.4-.6l-10-10c-3.1-3.1-3.1-8.2 0-11.3 3.1-3.1 8.2-3.1 11.3 0l.1.1.1-.1c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.3l-10 10c-.4.4-.9.6-1.4.6z"/>
-                    </svg>
+                    <div class="kiss-heart"></div>
+                    <div class="teddy-couple">
+                        <div class="bear boy-bear">
+                            <div class="bear-head">
+                                <div class="bear-eyes left"></div>
+                                <div class="bear-eyes right"></div>
+                                <div class="bear-muzzle"></div>
+                            </div>
+                            <div class="bear-body"></div>
+                        </div>
+                        <div class="bear girl-bear">
+                            <div class="bear-head">
+                                <div class="bear-eyes left"></div>
+                                <div class="bear-eyes right"></div>
+                                <div class="bear-muzzle"></div>
+                            </div>
+                            <div class="bear-body"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="text-footer-group">
@@ -244,7 +127,7 @@
         function createHeart(x, y) {
             const heart = document.createElement('div');
             heart.classList.add('particle-heart');
-            heart.innerHTML = ['💝','💖','❤️','😘'][Math.floor(Math.random() * 4)];
+            heart.innerHTML = '💖';
             heart.style.left = (x - 10 + (Math.random() * 100 - 50)) + 'px';
             heart.style.top = (y - 10 + (Math.random() * 100 - 50)) + 'px';
             document.body.appendChild(heart);
