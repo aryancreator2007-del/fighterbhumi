@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,9 +128,9 @@
             overflow: hidden;
             z-index: 2;
         }
-        .bear-gif {
-            max-width: 100%;
-            max-height: 95%;
+        .bear-video {
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
         .ambient-heart {
@@ -206,8 +207,11 @@
                 <span class="ambient-heart h3">✨</span>
                 <span class="ambient-heart h4">💕</span>
                 <div class="bear-animation-area">
-                    <!-- Custom direct high-stability Tenor server stream media asset -->
-                    <img class="bear-gif" src="https://tenor.com" alt="Teddy Bear Giving Kiss">
+                    <!-- High-stability global content-delivery network stream address -->
+                    <video class="bear-video" autoplay loop muted playsinline id="cardVideo">
+                        <source src="https://mixkit.co" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             <div class="text-footer-group">
@@ -219,6 +223,12 @@
     <script>
         function openBox(e) {
             document.getElementById('sceneContainer').classList.add('opened');
+            
+            const video = document.getElementById('cardVideo');
+            if(video) {
+                video.play().catch(error => console.log("Playback state exception handled:", error));
+            }
+
             for(let i = 0; i < 15; i++) {
                 setTimeout(() => {
                     createHeart(e.clientX || window.innerWidth/2, e.clientY || window.innerHeight/2);
