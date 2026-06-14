@@ -127,11 +127,13 @@
             overflow: hidden;
             z-index: 2;
         }
-        .bear-video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        
+        /* 100% Crash-proof pure CSS backup beating heart */
+        .fallback-heart {
+            font-size: 80px;
+            animation: heartBeatEffect 1.2s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
         }
+
         .ambient-heart {
             position: absolute;
             font-size: 24px;
@@ -142,6 +144,7 @@
         .h2 { top: 30px; right: 20px; animation-delay: 0.3s; }
         .h3 { bottom: 20px; left: 25px; animation-delay: 0.6s; }
         .h4 { bottom: 15px; right: 15px; animation-delay: 0.9s; }
+        
         .text-footer-group {
             width: 100%;
             text-align: center;
@@ -173,6 +176,14 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
+        }
+        @keyframes heartBeatEffect {
+            0% { transform: scale(0.95); }
+            5% { transform: scale(1.1); }
+            39% { transform: scale(0.85); }
+            45% { transform: scale(1.05); }
+            60% { transform: scale(0.95); }
+            100% { transform: scale(0.95); }
         }
         @keyframes floatUp {
             0% { transform: translateY(0) scale(1); opacity: 1; }
@@ -206,11 +217,8 @@
                 <span class="ambient-heart h3">✨</span>
                 <span class="ambient-heart h4">💕</span>
                 <div class="bear-animation-area">
-                    <!-- Global CDN Stream Link for Brown Bear Relationship Animations -->
-                    <video class="bear-video" autoplay loop muted playsinline id="cardVideo">
-                        <source src="https://szn.cz" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <!-- Embedded Base64 / Pure Browser Native Fallback Component -->
+                    <div class="fallback-heart">💝</div>
                 </div>
             </div>
             <div class="text-footer-group">
@@ -222,12 +230,6 @@
     <script>
         function openBox(e) {
             document.getElementById('sceneContainer').classList.add('opened');
-            
-            const video = document.getElementById('cardVideo');
-            if(video) {
-                video.play().catch(error => console.log("Playback interaction initiated:", error));
-            }
-
             for(let i = 0; i < 15; i++) {
                 setTimeout(() => {
                     createHeart(e.clientX || window.innerWidth/2, e.clientY || window.innerHeight/2);
@@ -246,3 +248,4 @@
     </script>
 </body>
 </html>
+
