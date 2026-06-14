@@ -127,11 +127,16 @@
             overflow: hidden;
             z-index: 2;
         }
-        .bear-gif {
-            max-width: 100%;
-            max-height: 95%;
-            object-fit: contain;
+        
+        /* Pure Browser CSS Beating Heart SVG Container */
+        .vector-heart-glow {
+            width: 110px;
+            height: 110px;
+            fill: #ff4d6d;
+            filter: drop-shadow(0px 0px 12px rgba(255, 77, 109, 0.6));
+            animation: vectorHeartbeatCycle 1.2s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
         }
+
         .ambient-heart {
             position: absolute;
             font-size: 24px;
@@ -142,6 +147,7 @@
         .h2 { top: 30px; right: 20px; animation-delay: 0.3s; }
         .h3 { bottom: 20px; left: 25px; animation-delay: 0.6s; }
         .h4 { bottom: 15px; right: 15px; animation-delay: 0.9s; }
+        
         .text-footer-group {
             width: 100%;
             text-align: center;
@@ -173,6 +179,14 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
             100% { transform: scale(1); }
+        }
+        @keyframes vectorHeartbeatCycle {
+            0% { transform: scale(0.95); }
+            5% { transform: scale(1.12); }
+            39% { transform: scale(0.85); }
+            45% { transform: scale(1.08); }
+            60% { transform: scale(0.95); }
+            100% { transform: scale(0.95); }
         }
         @keyframes floatUp {
             0% { transform: translateY(0) scale(1); opacity: 1; }
@@ -206,8 +220,10 @@
                 <span class="ambient-heart h3">✨</span>
                 <span class="ambient-heart h4">💕</span>
                 <div class="bear-animation-area">
-                    <!-- CRASH-PROOF EMBEDDED BASE64 MEDIA STRING -->
-                    <img class="bear-gif" src="data:image/gif;base64,R0lGODlhZABkAPQAAP///wAAAPr6+u7u7t3d3czMzKysrJiYmHeHh2ZmZlVVVURERERERDw8PDQ0NDAwMCwsLCEhIRwcHBQUFAwMDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggR0lGUC5kZSBvbmxpbmUAcwAh+QQVYAD/ACwAAAAAZABkAEAF/0AnjmRpnmiqrmzrvnAsz3Rt33iu73zv/8CgcEgsEvvEIDGZTCqbyidU6pRKp9gq9srtcr3gMHlsOpfM6LSa7Xq/4LF5bF6b1+65fG6f2+/8gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusrbe4ubq7vL2+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9vrvYAgA7" alt="Teddy Bear Giving Kiss">
+                    <!-- Inline Vector Native Heart Shape Drawing -->
+                    <svg class="vector-heart-glow" viewBox="0 0 32 32">
+                        <path d="M16 28.5c-.5 0-1-.2-1.4-.6l-10-10c-3.1-3.1-3.1-8.2 0-11.3 3.1-3.1 8.2-3.1 11.3 0l.1.1.1-.1c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.3l-10 10c-.4.4-.9.6-1.4.6z"/>
+                    </svg>
                 </div>
             </div>
             <div class="text-footer-group">
@@ -237,4 +253,3 @@
     </script>
 </body>
 </html>
-
