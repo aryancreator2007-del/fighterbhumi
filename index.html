@@ -11,8 +11,6 @@
             padding: 0;
         }
         body {
-            /* Deep pink gradient background requested */
-            background: linear-gradient(135deg, #ff4e50, #f9d423, #e94e77);
             background: linear-gradient(180deg, #2b0412 0%, #4a0e26 50%, #1a020a 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -21,8 +19,6 @@
             height: 100vh;
             overflow: hidden;
         }
-
-        /* Container for the page workflow */
         .scene-container {
             position: relative;
             width: 100%;
@@ -32,8 +28,6 @@
             justify-content: center;
             align-items: center;
         }
-
-        /* PAGE 1: The Magic Gift Box */
         .box-wrapper {
             position: absolute;
             cursor: pointer;
@@ -49,7 +43,6 @@
             border-radius: 10px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
-        /* Box Ribbon and Bow */
         .gift-box::before {
             content: '';
             position: absolute;
@@ -73,13 +66,10 @@
             border-radius: 5px;
             z-index: 11;
         }
-
-        /* PAGE 2: The Enhanced Card */
         .card-wrapper {
             position: absolute;
             width: 95%;
             height: 98%;
-            /* Pink/Dark Pink interior card background */
             background: linear-gradient(180deg, #fff0f5 0%, #ffe4e1 100%);
             border-radius: 24px;
             border: 8px solid #ff4d6d;
@@ -95,8 +85,6 @@
             pointer-events: none;
             z-index: 5;
         }
-
-        /* Ribbon on top */
         .ribbon-header {
             background: linear-gradient(90deg, #ff2a5f, #ff4d6d, #ff2a5f);
             color: white;
@@ -109,19 +97,15 @@
             letter-spacing: 2px;
             position: relative;
         }
-        
-        /* Bhumi ji in italic below ribbon */
         .center-name {
             font-size: 40px;
             color: #ff2a5f;
             font-weight: 800;
-            font-style: italic; /* Italic styling requested */
+            font-style: italic;
             margin: 5px 0;
             text-shadow: 1px 1px 0px #fff, 3px 3px 0px #ffccd5;
             text-align: center;
         }
-
-        /* Floating Hearts Layer Container */
         .hearts-container {
             position: relative;
             width: 100%;
@@ -130,8 +114,6 @@
             justify-content: center;
             align-items: center;
         }
-
-        /* Teddy bear giving kiss area */
         .bear-animation-area {
             width: 90%;
             height: 220px;
@@ -150,8 +132,6 @@
             max-height: 95%;
             object-fit: contain;
         }
-
-        /* Static ambient decorative hearts around the bear */
         .ambient-heart {
             position: absolute;
             font-size: 24px;
@@ -162,8 +142,6 @@
         .h2 { top: 30px; right: 20px; animation-delay: 0.3s; }
         .h3 { bottom: 20px; left: 25px; animation-delay: 0.6s; }
         .h4 { bottom: 15px; right: 15px; animation-delay: 0.9s; }
-
-        /* Lower Text Areas */
         .text-footer-group {
             width: 100%;
             text-align: center;
@@ -183,8 +161,6 @@
             font-weight: 700;
             line-height: 1.4;
         }
-
-        /* Screen Click Particle Hearts */
         .particle-heart {
             position: absolute;
             color: #ff4d6d;
@@ -193,8 +169,6 @@
             animation: floatUp 2s forwards ease-out;
             z-index: 99;
         }
-
-        /* Animations styling */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
@@ -204,8 +178,6 @@
             0% { transform: translateY(0) scale(1); opacity: 1; }
             100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
         }
-
-        /* Interactive Classes triggered by JavaScript */
         .scene-container.opened .box-wrapper {
             transform: scale(0) rotate(-15deg);
             opacity: 0;
@@ -219,67 +191,46 @@
     </style>
 </head>
 <body>
-
     <div class="scene-container" id="sceneContainer">
-        
-        <!-- FIRST PAGE LAYOUT: The Clickable Box -->
         <div class="box-wrapper" id="giftBox" onclick="openBox(event)">
             <div class="box-lid"></div>
             <div class="gift-box"></div>
             <p style="color: #ffccd5; text-align: center; margin-top: 15px; font-weight: bold; font-size: 18px; text-shadow: 0 2px 4px rgba(0,0,0,0.5)">Tap to open your gift 🎁</p>
         </div>
-
-        <!-- SECOND PAGE LAYOUT: The Revealed Card -->
         <div class="card-wrapper">
-            <!-- 1. Ribbon at top -->
             <div class="ribbon-header">I am So Sorry</div>
-            
-            <!-- 2. Bhumi ji in italic layout -->
             <div class="center-name">Bhumi ji💝💝</div>
-            
-            <!-- 3. Teddy bear giving kiss inside + hearts around it -->
             <div class="hearts-container">
                 <span class="ambient-heart h1">💖</span>
                 <span class="ambient-heart h2">💝</span>
                 <span class="ambient-heart h3">✨</span>
                 <span class="ambient-heart h4">💕</span>
-                
                 <div class="bear-animation-area">
-                   <img class="bear-gif" src="https://postimg.co" alt="Teddy Bear Giving Kiss">
-
+                    <!-- Stable non-blocked direct link used below -->
+                    <img class="bear-gif" src="https://postimg.co" alt="Teddy Bear Giving Kiss">
                 </div>
             </div>
-
-            <!-- 4. Sorry written below bear, followed by custom message -->
             <div class="text-footer-group">
                 <div class="sorry-text">Please Forgive Me! 🥺</div>
-                <div class="custom-puchku-message">
-                    Love You my puchku💝💝😘
-                </div>
+                <div class="custom-puchku-message">Love You my puchku💝💝😘</div>
             </div>
         </div>
-
     </div>
-
     <script>
         function openBox(e) {
             document.getElementById('sceneContainer').classList.add('opened');
-            
-            // Generate a burst of popping hearts when opened!
             for(let i = 0; i < 15; i++) {
                 setTimeout(() => {
                     createHeart(e.clientX || window.innerWidth/2, e.clientY || window.innerHeight/2);
                 }, i * 60);
             }
         }
-
         function createHeart(x, y) {
             const heart = document.createElement('div');
             heart.classList.add('particle-heart');
             heart.innerHTML = ['💝','💖','❤️','😘'][Math.floor(Math.random() * 4)];
             heart.style.left = (x - 10 + (Math.random() * 100 - 50)) + 'px';
             heart.style.top = (y - 10 + (Math.random() * 100 - 50)) + 'px';
-            
             document.body.appendChild(heart);
             setTimeout(() => { heart.remove(); }, 2000);
         }
